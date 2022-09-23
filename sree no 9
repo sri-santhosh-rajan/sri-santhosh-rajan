@@ -1,0 +1,21 @@
+mysql> select facno,facname,deptno from facultys;
++-------+----------+--------+
+| facno | facname  | deptno |
++-------+----------+--------+
+|     1 | kishore  | AI     |
+|     2 | Nazriya  | AI     |
+|     3 | malini   | BIO    |
+|     4 | Naveen   | IT     |
+|     5 | priya    | cse    |
++-------+----------+--------+
+2),
+ select stud_name,std_regno,dept_name,course_score from course;
++-----------+-----------+-----------+--------------+
+| stud_name | std_regno | dept_name | course_score |
++-----------+-----------+-----------+--------------+
+| roshan    | 192124078 | IT        |           90 |
+| haritha   | 192124036 | CSE       |           87 |
+| kishore   | 192124037 | BIO       |           43 |
+| kishore   | 192124038 | AI        |           80 |
+| roshan    | 192124078 | AI        |           90 |
++-----------+-----------+-----------+--------------+
