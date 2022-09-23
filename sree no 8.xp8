@@ -1,0 +1,19 @@
+mysql> select*from facultys order by DOjoin limit 2;
++-------+---------+--------+------------+------------+-----------+--------+
+| FACNO | FACNAME | GENDER | DOB        | DOjoin     | MOBILE_NO | deptno |
++-------+---------+--------+------------+------------+-----------+--------+
+|     5 | Nazriya | female | 1982-01-19 | 2003-07-13 |   7595462 | cse    |
+|     4 | Sree    | male   | 1979-08-19 | 2003-08-10 |   7562782 | IT     |
++-------+---------+--------+------------+------------+-----------+--------+
+2 rows in set (0.00 sec)
+2),
+mysql> select course_name,assesment from course where course_score>(select avg( course_score)from course order by course_no);
++--------------+-----------+
+| course_name  | assesment |
++--------------+-----------+
+| Physics      | 1st       |
+| Chemistr     | 1st       |
+| English      | 1st       |
+| Python       | 1st       |
++--------------+-----------+
+10 rows in set (0.00 sec)
