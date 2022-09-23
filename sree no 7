@@ -1,0 +1,77 @@
+mysql> alter table course
+    -> add column std_regno int(15);
+Query OK, 15 rows affected (0.03 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> select*from course where course_score>(select avg(course_score)from course);
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+
+| COURSE_NO | COURSE_NAME  | COURSE_TYPE | SEM_NO | HALL_NO | FAC_NO | COURSE_SCORE | STUD_NAME | std_regno |
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+
+|         2 | DBMS         | M           | A      | 12b     | TEC    |          100 | NULL      |      NULL |
+|         1 | ETHICS       | M           | A      | 12b     | BEC    |          100 | NULL      |      NULL |
+|         1 | MATHS        | S           | A      | 12b     | SEC    |          100 | NULL      |      NULL |
+|         4 | OOP C++      | P           | A      | 11C     | REC    |          100 | NULL      |      NULL |
+|         2 | DBMS         | M           | A      | 12b    | TEC    |          100 | JAANAVEE  |      NULL |
+|         2 | DBMS         | M           | A      | 11C     | TEC    |          100 | JAANAVEE  |      NULL |
+|         1 | ETHICS       | E           | A      | 11C     | BEC    |          100 | KISHORE   |      NULL |
+|         4 | OOP C++      | P           | A      | 11C     | REC    |          100 | POOJA     |      NULL |
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+
+2)
+mysql> alter table course
+    -> add column assesment varchar(15);
+Query OK, 15 rows affected (0.04 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> describe course;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| COURSE_NO    | int(4)      | YES  |     | NULL    |       |
+| COURSE_NAME  | varchar(14) | YES  |     | NULL    |       |
+| COURSE_TYPE  | char(1)     | YES  |     | NULL    |       |
+| SEM_NO       | char(1)     | YES  |     | NULL    |       |
+| HALL_NO      | varchar(4)  | YES  |     | NULL    |       |
+| FAC_NO       | char(4)     | YES  |     | NULL    |       |
+| COURSE_SCORE | int(4)      | YES  |     | NULL    |       |
+| STUD_NAME    | varchar(15) | YES  |     | NULL    |       |
+| std_regno    | int(15)     | YES  |     | NULL    |       |
+| assesment    | varchar(15) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+10 rows in set (0.03 sec)
+3),
+mysql>  insert into course values('1','physics','m','e','1d','sie','80','kishore','192124038','1st');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into course values('5','chemistry','m','e','1d','sie','90','roshan','192124078','1st');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>  insert into course values('2','english','m','e','1d','sie','87','haritha','192124036','1st');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into course values('7','python','s','e','1d','sie','43','kishore','192124037','1st');
+Query OK, 1 row affected (0.01 sec)
+mysql> select*from course;
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+-----------+
+| COURSE_NO | COURSE_NAME  | COURSE_TYPE | SEM_NO | HALL_NO | FAC_NO | COURSE_SCORE | STUD_NAME | std_regno | assesment |
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+-----------+
+|         2 | DBMS         | M           | A      | 11C     | TEC    |          100 | Nazriya   | 192165432 | 2nd       |
+|         1 | ETHICS       | E           | A      | 11C     | BEC    |          100 | Sree      | 192111234 | 3rd       |
+|         4 | OOP C++      | P           | A      | 11C     | REC    |          100 | POOJA     | 192121128 | 2nd       |
+|         1 | Physics      | m           | e      | 1d      | sie    |           80 | kishore   | 192124038 | 1st       |
+|         5 | chemistry    | m           | e      | 1d      | sie    |           90 | roshan    | 192124078 | 1st       |
+|         2 | english      | m           | e      | 1d      | sie    |           87 | haritha   | 192124036 | 1st       |
+|         7 | Python       | s           | e      | 1d      | sie    |           43 | kishore   | 192124037 | 1st       |
++-----------+--------------+-------------+--------+---------+--------+--------------+-----------+-----------+-----------+
+19 rows in set (0.00 sec)
+4),
+mysql> select*from facultys;
++-------+----------+--------+------------+------------+-----------+--------+
+| FACNO | FACNAME  | GENDER | DOB        | DOjoin     | MOBILE_NO | deptno |
++-------+----------+--------+------------+------------+-----------+--------+
+|     1 | Sree     | male   | 1980-05-12 | 2009-12-17 |  98765432 | AI     |
+|     2 | Nazriya  | female | 1981-12-17 | 2004-02-21 |  90456782 | AI     |
+|     3 | malini   | female | 1979-08-19 | 2004-06-21 |  75438782 | bi0    |
+|     4 | Naveen   | male   | 1979-08-19 | 2003-08-10 |  67562782 | IT     |
+|     5 | priya    | female | 1982-01-19 | 2003-07-13 |  97595462 | CSE    |
++-------+----------+--------+------------+------------+-----------+--------+
+5 rows in set (0.00 sec)
