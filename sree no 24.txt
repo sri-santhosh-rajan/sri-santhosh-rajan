@@ -1,0 +1,28 @@
+mysql> create table cars(Car_No int(10), Car_Name varchar(30), DOR date, Return_Date date);
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> insert into cars values(TN 01 AS 9299, "Benz", "2021.12.31", "2028.03.31");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into cars values(TN 45 BP 1423, "Audi", "2021.11.11", "2024.04.18");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into cars values(TN 22 AT 9066, "Bugatti", "2020.02.28", "2022.06.16");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from cars;
++---------------+----------+------------+-------------+
+| Car_No        | Car_Name | DOR        | Return_Date |
++---------------+----------+------------+-------------+
+| TN 01 AS 9299 | Benz     | 2021-12-31 | 2028-03-31  |
+| TN 45 BP 1423 | Audi     | 2021-11-11 | 2024-04-18  |
+| TN 22 AT 9066 | Bugatti  | 2020-02-28 | 2022-06-16  |
++---------------+----------+------------+-------------+
+3 rows in set (0.06 sec)
+mysql> select car_no, car_name from cars where return_date = '2024.04.18';
++---------------+----------+
+| car_no        | car_name |
++---------------+----------+
+| TH 45 BP 1423 | Audi     |
++---------------+----------+
+1 row in set (0.00 sec)
