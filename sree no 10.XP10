@@ -1,0 +1,123 @@
+mysql> use employee;
+Database changed
+mysql> create table customer(ID INT(10),NAME CHAR(8),SALARY INT(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESCRIBE CUSTOMER;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| ID     | int(10) | YES  |     | NULL    |       |
+| NAME   | char(8) | YES  |     | NULL    |       |
+| SALARY | int(10) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('001','Sree','80000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('004','Das','90000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('009','Nazriya','80000');
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO CUSTOMER VALUES('006','Losy','10000');
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO CUSTOMER VALUES('007','Santhosh','20000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT*FROM CUSTOMER;
++------+----------+--------+
+| ID   | NAME     | SALARY |
++------+----------+--------+
+|    1 | Sree     |  70000 |
+|    4 | Das      |  90000 |
+|    9 | Nazriya  |  80000 |
+|    6 | Losy     |  10000 |
+|    7 | Santhosh |  20000 |
++------+----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE VIEW CUSTOMER_VIEW AS SELECT NAME,SALARY FROM CUSTOMER;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT*FROM CUSTOMER_VIEW;
++----------+--------+
+| NAME     | SALARY |
++----------+--------+
+| Sree     |  70000 |
+| Das      |  90000 |
+| Nazriya  |  80000 |
+| Losy     |  10000 |
+| Santhosh |  20000 |
++----------+--------+
+5 rows in set (0.01 sec)
+
+mysql> CREATE INDEX REGNO ON CUSTOMER(NAME);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE INDEX REG_NO ON CUSTOMER(NAME);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SHOW INDEX FROM CUSTOMER;
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table    | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| customer |          1 | REGNO    |            1 | NAME        | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
+| customer |          1 | REG_NO   |            1 | NAME        | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+2 rows in set (0.02 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
