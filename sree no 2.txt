@@ -1,0 +1,90 @@
+1)
+
+mysql> use employee;
+Database changed
+mysql> alter table student
+    -> add primarykey (reg_no);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(reg_no)' at line 2
+mysql>  alter table student
+    -> add primary key (reg_no);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe student;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| reg_no    | int(11)     | NO   | PRI | 0       |       |
+| name      | varchar(15) | YES  |     | NULL    |       |
+| gender    | char(1)     | YES  |     | NULL    |       |
+| DOB       | date        | YES  |     | NULL    |       |
+| mobile_no | int(11)     | YES  |     | NULL    |       |
+| city      | char(15)    | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+2)
+
+mysql> alter table FACULTY
+    -> ADD CHECK(gender ='m'or'f');
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> alter table FACULTY
+    -> add primary key (facno);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facNo    | int(11)     | NO   | PRI | 0       |       |
+| facName  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(12)    | YES  |     | NULL    |       |
+| DOD      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| mobileNo | int(10)     | YES  |     | NULL    |       |
+| deptno   | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.03 sec).
+
+
+4)
+
+mysql> ALTER TABLE DEPARTMENT
+    -> ADD primary key (deptno);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE DEPARTMENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptno   | varchar(4)  | NO   | PRI |         |       |
+| deptname | varchar(15) | YES  |     | NULL    |       |
+| depthead | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+5)
+mysql> ALTER TABLE COURSE
+    -> ADD PRIMARY KEY (courseno);
+Query OK, 0 rows affected (0.03 sec)
+mysql> ALTER TABLE COURSE
+    -> ADD check (semno<=1 && semno>=6);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe COURSE;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| courseno   | varchar(3)  | NO   | PRI |         |       |
+| coursedesc | varchar(14) | YES  |     | NULL    |       |
+| coursetype | char(1)     | YES  |     | NULL    |       |
+| semno      | char(1)     | YES  |     | NULL    |       |
+| hallno     | varchar(4)  | YES  |     | NULL    |       |
+| facno      | varchar(4)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
