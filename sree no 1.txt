@@ -1,0 +1,83 @@
+USE employee;
+Database changed
+mysql> CREATE TABLE STUDENT(reg_no int,name VARCHAR(15),gender CHAR(1),DOB DATE,mobile_no int,city CHAR(15));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe STUDENT;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| reg_no    | int(11)     | YES  |     | NULL    |       |
+| name      | varchar(15) | YES  |     | NULL    |       |
+| gender    | char(1)     | YES  |     | NULL    |       |
+| DOB       | date        | YES  |     | NULL    |       |
+| mobile_no | int(11)     | YES  |     | NULL    |       |
+| city      | char(15)    | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> CREATE TABLE FACULTY(facNo int,facName VARCHAR(15),gender CHAR(12),DOD DATE,DOJ DATE,mobileNo NUMBER(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NUMBER(10))' at line 1
+mysql> CREATE TABLE FACULTY(facNo int,facName VARCHAR(15),gender CHAR(12),DOD DATE,DOJ DATE,mobileNo int(10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> describe FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facNo    | int(11)     | YES  |     | NULL    |       |
+| facName  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(12)    | YES  |     | NULL    |       |
+| DOD      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| mobileNo | int(10)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DEPARTMENT(deptno VARCHAR(4),deptname VARCHAR(15),depthead VARCHAR(4));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> describe DEPARTMENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptno   | varchar(4)  | YES  |     | NULL    |       |
+| deptname | varchar(15) | YES  |     | NULL    |       |
+| depthead | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> CREATE TABLE COURSE(courseno VARCHAR(3),coursedesc VARCHAR(14),coursetype CHAR(1),semno CHAR(1),hallno VARCHAR(4),facno VARCHAR(4));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe COURSE;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| courseno   | varchar(3)  | YES  |     | NULL    |       |
+| coursedesc | varchar(14) | YES  |     | NULL    |       |
+| coursetype | char(1)     | YES  |     | NULL    |       |
+| semno      | char(1)     | YES  |     | NULL    |       |
+| hallno     | varchar(4)  | YES  |     | NULL    |       |
+| facno      | varchar(4)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> ALTER TABLE FACULTY
+    -> ADD deptno VARCHAR(4);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facNo    | int(11)     | YES  |     | NULL    |       |
+| facName  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(12)    | YES  |     | NULL    |       |
+| DOD      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| mobileNo | int(10)     | YES  |     | NULL    |       |
+| deptno   | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
